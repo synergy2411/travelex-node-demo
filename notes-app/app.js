@@ -1,4 +1,7 @@
 var yargs = require("yargs");
+var chalk = require("chalk");
+
+var notes = require("./utils/notes");
 
 yargs.command({
     command: "add",
@@ -16,7 +19,8 @@ yargs.command({
         }
     },
     handler : function(argv){
-        console.log("ARGV : ", argv.title, argv.body);
+        // console.log("ARGV : ", argv.title, argv.body);
+        notes.add(argv.title, argv.body);
     }
 });
 yargs.command({
@@ -30,7 +34,8 @@ yargs.command({
         }
     },
     handler : function(argv){
-        console.log("REMOVE ARGS : ", argv.title)
+        // console.log("REMOVE ARGS : ", argv.title)
+        notes.remove(argv.title);
     }
 })
 yargs.command({
@@ -44,14 +49,22 @@ yargs.command({
         }
     },
     handler : function(argv){
-        console.log("READ ARGS : ", argv.title)
+        // console.log("READ ARGS : ", argv.title)
+        notes.read(argv.title);
     }
 })
 yargs.command({
     command : "list",
     description :"To list down all notes",
     handler : function(argv){
-        console.log("LIST ALL NOTES.")
+        console.log(chalk.inverse.grey("LIST ALL NOTES."))
+        
+        notes.list().forEach(note => {
+            console.log(chalk.inverse.grey("____________________________________"));
+            console.log("Title : ", note.title);
+            console.log("Body : ", note.body);
+            
+        });
     }
 })
 
