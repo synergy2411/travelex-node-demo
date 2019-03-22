@@ -1,7 +1,10 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
+var mongo = require("./utils/mongo-utils");
+
 var app = express();
+mongo.connectMongo();
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(bodyParser.urlencoded({extended : false}));
@@ -17,7 +20,14 @@ app.get("/data", (req, res)=>{
 
 app.get("/register", (req, res)=>{
     console.log(req.query);
-    res.send({msg : req.query});
+
+    mongo.createDocument(req.query, function(err, data){
+        if(err){
+            return res.send(err)
+        }
+        res.send(data);
+
+    })
 })
 
 app.post("/register", (req, res)=>{
