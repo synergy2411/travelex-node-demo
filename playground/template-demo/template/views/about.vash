@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About</title>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+    <h1>About @model.username!</h1>
+    <p>Hi, I'm @model.age years old!</p>
+</body>
+</html>
