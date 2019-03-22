@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <form action="http://localhost:3000/register" class="well"> -->
+        <form class="well">
+            <h1 class="text-center text-danger">Weather App</h1>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <input type="search" id="address" name="address" placeholder="Address to know weather" class="form-control">
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <input type="button" id="btnSend" value="Show Weather" class="btn btn-block btn-danger">
+                    </div>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+
+    <div class="container">
+        <p id="show-weather" class="text-danger lead"></p>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
