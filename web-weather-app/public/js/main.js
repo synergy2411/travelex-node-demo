@@ -8,9 +8,10 @@ btnSend.addEventListener("click", event => {
     // fetch("/weather", {method : "POST", body : address.value})
         .then(response => response.json())
         .then(resp => {
+            // console.log(resp);
             showWeather.innerHTML = 
-            `It seems like ${resp.temperature}f at your location.
-            <p>Forecast is ${resp.summary}</p>
+            `In ${resp.location.formatted_address}, seems like ${resp.forecastData.temperature}f.
+            <p>Forecast is ${resp.forecastData.summary}</p>
             `
         })
         .catch(err => {
